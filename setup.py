@@ -50,4 +50,11 @@ if not os.path.isfile(home + "/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"):
 if not os.path.isfile(home + "/.oh-my-zsh/custom}/themes/powerlevel10k"):
     subprocess.call(["git", "clone", "--depth=1", "https://github.com/romkatv/powerlevel10k.git", home + "/.oh-my-zsh/custom/themes/powerlevel10k"])
 
+#ask to delete zshrc
+if input("Delete zshrc? [y/n] ") == "y":
+    os.remove(home + "/.zshrc")
+
+#download and replace zshrc from https://raw.githubusercontent.com/Supersonicboss1/ZSHSetup/main/.zshrc
+subprocess.call(["curl", "-fsSL", "https://raw.githubusercontent.com/Supersonicboss1/ZSHSetup/main/.zshrc", "-o", home + "/.zshrc"])
+
 print("Done! You can change font to JetBrains Mono in your terminal settings and launch zsh when ready")
